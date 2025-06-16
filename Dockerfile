@@ -22,4 +22,4 @@ WORKDIR /usr/src
 VOLUME ["/usr/src"]
 
 # Default command
-CMD ["python3"]
+CMD ["python"]
