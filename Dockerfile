@@ -9,5 +9,6 @@ RUN pip install packaging seaborn numpy pandas matplotlib
 
 WORKDIR /home/app
 COPY . .
+CMD ["python3"]
 
 
