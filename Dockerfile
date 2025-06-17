@@ -1,13 +1,21 @@
 FROM ubuntu:22.04
 
+# Install system dependencies
 RUN apt update && \
-	apt upgrade -y && \
-	apt install -y build-essential wget zlib1g zlib1g-dev python3 pip && \
-	apt clean
+    apt upgrade -y && \
+    apt install -y build-essential wget zlib1g zlib1g-dev python3 python3-pip && \
+    apt clean
 
-RUN pip install packaging seaborn numpy pandas matplotlib seaborn
+# Install Python packages
+RUN pip install packaging seaborn numpy pandas matplotlib
 
-WORKDIR /home
+# Set working directory
+WORKDIR /home/app
+
+# Copy your package code into the image
+COPY . /home/app
+
+# Install your package
 RUN python3 setup.py install
-RUN apt install -y sudo
+
 
