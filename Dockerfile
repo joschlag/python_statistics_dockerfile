@@ -1,20 +1,13 @@
-FROM ubuntu:22.04
+FROM python:3-alpine3.22
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update && \
+	apt upgrade -y && \
+	apt install -y build-essential wget zlib1g zlib1g-dev python3 pip && \
+	apt clean
 
-RUN apt-get update && apt-get install -y \
-    python3-pip \
-    python3-opencv && \
-    update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && \
-    rm -rf /var/lib/apt/lists/*
+RUN pip install packaging seaborn numpy pandas matplotlib seaborn
 
-RUN pip3 install --no-cache-dir \
-    numpy \
-    pandas \
-    matplotlib \
-    seaborn
+WORKDIR /home
+RUN python3 setup.py install
+RUN apt install -y sudo
 
-WORKDIR /usr/src
-VOLUME ["/usr/src"]
-
-CMD ["python"]
