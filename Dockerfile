@@ -7,6 +7,8 @@ RUN conda config --append channels bioconda && \
 	conda config --append channels anaconda && \
 	conda install -c bioconda python=3.11 numpy=1.26 pandas=2.2 matplotlib=3.8 seaborn=0.13.2 && \
 	conda clean -a -y
+ 
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 CMD ["python3"]
 
