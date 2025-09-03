@@ -20,7 +20,7 @@ jobs:
           id: build-docker-image
           run: |
             ls -la 
-            docker build . -f Dockerfile -t joschlag/statistics_gemona:0.01
+            docker build . -f Dockerfile -t joschlag/statistics_gemona:0.02
         - name: push the docker image
           id: push-docker-image
-          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/statistics_gemona:0.01
+          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/statistics_gemona:0.02
