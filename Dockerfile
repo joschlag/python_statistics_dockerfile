@@ -5,7 +5,7 @@ ENV PATH=/opt/conda/bin:$PATH
 RUN conda config --append channels bioconda && \
 	conda config --append channels conda-forge && \
 	conda config --append channels anaconda && \
-	conda install -c bioconda python=3.11 numpy=1.26 pandas=2.2 matplotlib=3.8 seaborn=0.13.2  biopython=1.85 && \
+	conda install -c bioconda python=3.11 numpy=1.26 pandas=2.2 matplotlib=3.8 seaborn=0.13.2  biopython=1.85 geopandas=1.1.1  && \
 	conda clean -a -y
  
 RUN ln -s /opt/conda/bin/python /usr/bin/python
